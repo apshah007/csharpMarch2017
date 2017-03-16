@@ -1,0 +1,30 @@
+﻿@model CLproject.Models.GroceryViewModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<p>To Do List by Amy Shah</p>
+<p>Code Louisville</p>
+
+@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+    @Html.AntiForgeryToken()
+
+    <ul>
+        @for (var i = 0; i < Model.Groceries.Count; i++)
+        {
+        <li><div>@Model.Groceries[i].ProductName</div></li>
+        }
+    </ul>
+
+    @Html.LabelFor(g => g.Item.ProductName)
+    @Html.TextBoxFor(g => g.Item.ProductName, new { @class = "", @style = "" })  <br>
+    @Html.ValidationMessageFor(g => g.Item.ProductName)
+    <button type="submit" name="submit">Add</button>
+}
+
+
+
+
