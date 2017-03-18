@@ -4,8 +4,9 @@
     ViewBag.Title = "Index";
 }
 
-<p>To Do List by Amy Shah</p>
 <p>Code Louisville</p>
+<p>To Do List</p>
+<p>by Amy Shah</p>
 
 @using (Html.BeginForm())
 {
@@ -23,6 +24,8 @@
     @Html.TextBoxFor(g => g.Item.ProductName, new { @class = "", @style = "" })  <br>
     @Html.ValidationMessageFor(g => g.Item.ProductName)
     <button type="submit" name="submit">Add</button>
+    <button type="delete" name="delete">Remove</button>
+    <button type="clearAll" name="clearAll">Clear List</button>
 }
 
 
