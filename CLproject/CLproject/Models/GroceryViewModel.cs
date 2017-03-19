@@ -29,5 +29,22 @@ namespace CLproject.Models
 
         public bool InCart { get; set; }
     }
+
+    public class MyGroceries : DataContext
+    {
+        public Table<Food> Food;
+        public MyGroceries(string foodList) : base(foodList) { }
+    }
+
+    [Table(Name = "MyGroceriesTable")]
+    public class Food
+    {
+        [Column(IsPrimaryKey = true)]
+        public string ProductName;
+        [Column]
+        public string ProductId;
+        [Column]
+        public bool IsChecked; 
+    }
 }
 
