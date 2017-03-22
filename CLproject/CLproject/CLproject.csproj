@@ -217,6 +217,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Grocery.Context.cs" />
+    <Compile Include="GroceryDataModel.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\GroceryViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />

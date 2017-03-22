@@ -4,11 +4,17 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
+
 namespace CLproject
 {
     public class GroceryContext : DbContext
     {
-        public DbSet<Grocery> Grocery { get; set; }
-    }
+        public GroceryContext()
+        {
+            // database.setinitializer(new databaseinitializer());
+        }
 
+        public DbSet<Product> Products { get; set; }
+
+    }
 }
