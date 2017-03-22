@@ -26,6 +26,13 @@ namespace CLproject.Migrations
             //      new Person { FullName = "Rowan Miller" }
             //    );
             //
+
+            context.Grocery.AddOrUpdate)
+                g => g.ProductName, 
+                new Grocery { ProductName = "Lettuce" }, 
+                new Grocery { ProductName = "Dressing"}, 
+                new Grocery { ProductName = "Tomato"}
+            );
         }
     }
 }
