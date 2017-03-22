@@ -32,11 +32,11 @@ namespace CLproject.Migrations
             //    );
             //
 
-            context.CLproject.GroceryContext.AddOrUpdate(
+            context.Products.AddOrUpdate(
                 g => g.ProductName, 
-                new GroceryContext { ProductName = "Lettuce" }, 
-                new GroceryContext { ProductName = "Dressing"}, 
-                new GroceryContext { ProductName = "Tomato"}
+                new Product { ProductName = "Lettuce" }, 
+                new Product { ProductName = "Dressing"}, 
+                new Product { ProductName = "Tomato"}
             );
         }
     }
