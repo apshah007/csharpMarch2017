@@ -4,10 +4,14 @@ namespace CLproject.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+    using CLproject;
+
  
 
     internal sealed class Configuration : DbMigrationsConfiguration<CLproject.GroceryContext>
     {
+        private object contextGroceryContext;
+
         public Configuration()
         {
             AutomaticMigrationsEnabled = true;
@@ -28,7 +32,7 @@ namespace CLproject.Migrations
             //    );
             //
 
-            contextGroceryContext.AddOrUpdate(
+            context.CLproject.GroceryContext.AddOrUpdate(
                 g => g.ProductName, 
                 new GroceryContext { ProductName = "Lettuce" }, 
                 new GroceryContext { ProductName = "Dressing"}, 

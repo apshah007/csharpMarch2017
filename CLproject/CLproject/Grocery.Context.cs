@@ -14,6 +14,7 @@ namespace CLproject
             // database.setinitializer(new databaseinitializer());
         }
 
+        public object ProductName { get; internal set; }
         public DbSet<Product> Products { get; set; }
 
     }
