@@ -33,25 +33,11 @@ namespace CLproject.Migrations
             //
 
             context.Products.AddOrUpdate(
-                g => g.ProductName,
-                new Product { ProductName = "Lettuce" },
-                new Product { ProductName = "Dressing" },
-                new Product { ProductName = "Tomato" }
-                );
-
-            context.Products.AddOrUpdate(
-                g=> g.ProductId, 
-                new Product { ProductId = 1 }, 
-                new Product { ProductId = 2 }, 
-                new Product { ProductId = 3 }
-                );
-
-            context.Products.AddOrUpdate(
-                g => g.InCart,
-                new Product { InCart = true },
-                new Product { InCart = false },
-                new Product { InCart = false }
-                );
+                p => p.ProductName,
+                 new Product { ProductName = "Lettuce", InCart = true },
+                 new Product { ProductName = "Dressing", InCart = false },
+                 new Product { ProductName = "Tomato", InCart = false }
+                    );
         }
     }
 }
