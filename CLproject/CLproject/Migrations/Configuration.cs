@@ -4,6 +4,7 @@ namespace CLproject.Migrations
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
     using System.Linq;
+ 
 
     internal sealed class Configuration : DbMigrationsConfiguration<CLproject.GroceryContext>
     {
@@ -27,11 +28,11 @@ namespace CLproject.Migrations
             //    );
             //
 
-            context.Grocery.AddOrUpdate)
+            contextGroceryContext.AddOrUpdate(
                 g => g.ProductName, 
-                new Grocery { ProductName = "Lettuce" }, 
-                new Grocery { ProductName = "Dressing"}, 
-                new Grocery { ProductName = "Tomato"}
+                new GroceryContext { ProductName = "Lettuce" }, 
+                new GroceryContext { ProductName = "Dressing"}, 
+                new GroceryContext { ProductName = "Tomato"}
             );
         }
     }
