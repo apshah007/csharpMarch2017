@@ -31,8 +31,8 @@ namespace CLproject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(GroceryViewModel model)
         {
-            if (ModelState.IsValid)
-            {
+            i
+            {f (ModelState.IsValid)
                 // save here
 
                 return RedirectToAction("Index");
