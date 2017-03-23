@@ -25,7 +25,7 @@ namespace CLproject.Models
     public class GroceryItem
     {
         // [DisplayName("Item ID")]
-        public string ItemId { get; set; }
+        public int ItemId { get; set; }
         [DisplayName("Product Name")]
         [MaxLength(50, ErrorMessage = "Max length is 50 characters")]
         public string ProductName { get; set; }

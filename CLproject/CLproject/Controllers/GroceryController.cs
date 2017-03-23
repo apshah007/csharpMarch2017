@@ -18,13 +18,17 @@ namespace CLproject.Controllers
             using (var context = new GroceryContext())
             {
                 var products = context.Products.ToList();
-                for (var p = 1; p < 300; p++)
+                for (var p = 1; p < products.Count; p++)
                 {
-                    var Item = new GroceryItem;
-                    model.Groceries.Add(new GroceryItem());
+                    var Item = new GroceryItem()
                     {
-                        GroceryItem() = (ProductName, ProductId, InCart);
-                    }
+                        ProductName = products[p].ProductName,
+                        InCart = products[p].InCart,
+                        ItemId = products[p].ProductId
+                    };
+
+                    model.Groceries.Add(Item);
+                                  
                 }
 
             }// save here
@@ -110,13 +114,13 @@ namespace CLproject.Controllers
         {
             try
             {
-                if InCart == "true"
-                  using (var context = new GroceryContext())
-                    {
-                        context.Products.Delete(product);
-                        context.SaveChanges();
-                    }
-                else
+                //if InCart == "true"
+                //  using (var context = new GroceryContext())
+                //    {
+                //        context.Products.Delete(product);
+                //        context.SaveChanges();
+                //    }
+                //else
                     // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
