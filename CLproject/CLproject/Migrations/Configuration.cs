@@ -10,7 +10,7 @@ namespace CLproject.Migrations
 
     internal sealed class Configuration : DbMigrationsConfiguration<CLproject.GroceryContext>
     {
-        private object contextGroceryContext;
+       // private object contextGroceryContext;
 
         public Configuration()
         {

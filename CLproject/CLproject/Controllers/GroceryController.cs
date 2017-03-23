@@ -13,19 +13,18 @@ namespace CLproject.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            
+
             var model = new GroceryViewModel();
             //load from the database 
-            model.Groceries.Add(new GroceryItem() { ProductName="apple" });
-            model.Groceries.Add(new GroceryItem() { ProductName="milk"});
-            model.Groceries.Add(new GroceryItem() { ProductName="cheese"});
-            model.Groceries.Add(new GroceryItem() { ProductName="oranges"});
-            
+            //model.Groceries.Add(new GroceryItem() { ProductName="apple" });
+            //model.Groceries.Add(new GroceryItem() { ProductName="milk"});
+            //model.Groceries.Add(new GroceryItem() { ProductName="cheese"});
+            //model.Groceries.Add(new GroceryItem() { ProductName="oranges"});
+            CLproject.GroceryContext.Add(new GroceryItem)
+                { };
 
-
-            return View(model);
         }
-
+      
 
         [HttpPost]
         [ValidateAntiForgeryToken]
