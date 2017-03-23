@@ -14,8 +14,24 @@ namespace CLproject.Controllers
         public ActionResult Index()
         {
             var model = new GroceryViewModel();
+
+            using (var context = new GroceryContext())
+            {
+                var products = context.Products.ToList();
+                for (var p = 1; p < 300; p++)
+                {
+                    var Item = new GroceryItem;
+                    model.Groceries.Add(new GroceryItem());
+                    {
+                        GroceryItem() = (ProductName, ProductId, InCart);
+                    }
+                }
+
+            }// save here
+
             return View(model);
         }
+  
             //load from the database 
             //model.Groceries.Add(new GroceryItem() { ProductName="apple" });
             //model.Groceries.Add(new GroceryItem() { ProductName="milk"});
@@ -81,21 +97,6 @@ namespace CLproject.Controllers
             return View();
         }
 
-        // POST: Grocery/Edit/5
-        [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add update logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
 
         // GET: Grocery/Delete/5
         public ActionResult Delete(int id)
@@ -109,7 +110,14 @@ namespace CLproject.Controllers
         {
             try
             {
-                // TODO: Add delete logic here
+                if InCart == "true"
+                  using (var context = new GroceryContext())
+                    {
+                        context.Products.Delete(product);
+                        context.SaveChanges();
+                    }
+                else
+                    // TODO: Add delete logic here
 
                 return RedirectToAction("Index");
             }
