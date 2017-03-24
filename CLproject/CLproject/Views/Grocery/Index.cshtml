@@ -16,13 +16,15 @@
     <ul>
         @for (var i = 0; i < Model.Groceries.Count; i++)
         {
-        <li><div>@Model.Groceries[i].ProductName</div></li>
+        <li><div>@Html.CheckBox("Groceries[" + i + "].ItemId", Model.Groceries[i].InCart)
+            @Model.Groceries[i].ProductName</div></li>
         }
     </ul>
 
     @Html.LabelFor(g => g.Item.ProductName)
     @Html.TextBoxFor(g => g.Item.ProductName, new { @class = "", @style = "" })  <br>
     @Html.ValidationMessageFor(g => g.Item.ProductName)
+    
     <button type="submit" name="submit">Add</button>
     <button type="submit" name="delete">Remove</button>
     <button type="submit" name="clearAll">Clear List</button>
