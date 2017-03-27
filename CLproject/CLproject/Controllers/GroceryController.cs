@@ -47,11 +47,13 @@ namespace CLproject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(GroceryViewModel model)
         {
-            if (ModelState.IsValid)
-            {
+          //  if (ModelState.IsValid)
+          //  {
                 var product = new Product
                 {
-                    ProductName = model.Item.ProductName
+                    ProductName = model.Item.ProductName, 
+                  //  ProductId = model.Item.ItemId, 
+                    InCart = model.Item.InCart
                 };
 
                 using (var context = new GroceryContext())
@@ -61,74 +63,74 @@ namespace CLproject.Controllers
                 }// save here
 
                 return RedirectToAction("Index");
-            }
+           // }
             //must reload view model list here before return 
             return View(model);
         }
 
 
-        // GET: Grocery/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //// GET: Grocery/Details/5
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
-        // GET: Grocery/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //// GET: Grocery/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
-        // POST: Grocery/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add insert logic here
+        //// POST: Grocery/Create
+        //[HttpPost]
+        //public ActionResult Create(FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        // TODO: Add insert logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
 
-        // GET: Grocery/Edit/5
-        public ActionResult Edit(int id)
-        {
-            return View();
-        }
+        //// GET: Grocery/Edit/5
+        //public ActionResult Edit(int id)
+        //{
+        //    return View();
+        //}
 
 
-        // GET: Grocery/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
+        //// GET: Grocery/Delete/5
+        //public ActionResult Delete(int id)
+        //{
+        //    return View();
+        //}
 
-        // POST: Grocery/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                //if InCart == "true"
-                //  using (var context = new GroceryContext())
-                //    {
-                //        context.Products.Delete(product);
-                //        context.SaveChanges();
-                //    }
-                //else
-                    // TODO: Add delete logic here
+        //// POST: Grocery/Delete/5
+        //[HttpPost]
+        //public ActionResult Delete(int id, FormCollection collection)
+        //{
+        //    try
+        //    {
+        //        //if InCart == "true"
+        //        //  using (var context = new GroceryContext())
+        //        //    {
+        //        //        context.Products.Delete(product);
+        //        //        context.SaveChanges();
+        //        //    }
+        //        //else
+        //            // TODO: Add delete logic here
 
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
-            }
-        }
+        //        return RedirectToAction("Index");
+        //    }
+        //    catch
+        //    {
+        //        return View();
+        //    }
+        //}
     }
 }
