@@ -47,13 +47,13 @@ namespace CLproject.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Index(GroceryViewModel model)
         {
-          //  if (ModelState.IsValid)
-          //  {
+            if (ModelState.IsValid)
+           {
                 var product = new Product
                 {
                     ProductName = model.Item.ProductName, 
                   //  ProductId = model.Item.ItemId, 
-                    InCart = model.Item.InCart
+                    InCart = false // model.Item.InCart
                 };
 
                 using (var context = new GroceryContext())
@@ -63,7 +63,7 @@ namespace CLproject.Controllers
                 }// save here
 
                 return RedirectToAction("Index");
-           // }
+            }
             //must reload view model list here before return 
             return View(model);
         }
