@@ -21,7 +21,7 @@ namespace CLproject.Controllers
             //model.Groceries.Add(new GroceryItem() { ProductName="milk"});
             //model.Groceries.Add(new GroceryItem() { ProductName="cheese"});
             //model.Groceries.Add(new GroceryItem() { ProductName="oranges"});
-    
+    // above information was hard coded data
 
         [HttpPost]
         [ValidateAntiForgeryToken]
