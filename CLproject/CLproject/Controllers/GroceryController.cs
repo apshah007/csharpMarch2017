@@ -13,6 +13,21 @@ namespace CLproject.Controllers
         [HttpGet]
         public ActionResult Index()
         {
+
+             var model = new GroceryViewModel();
+
+            using (var context = new GroceryContext())
+            {
+                model.Groceries = context.Products.Select(p => new GroceryItem() {
+                    ProductName = p.ProductName,
+                    InCart = false, 
+                    ItemId = p.ProductId.ToString()
+                }).ToList();
+//context.SaveChanges();
+
+                return View(model);
+            }
+
             var model = new GroceryViewModel();
 
             using (var context = new GroceryContext())
@@ -34,6 +49,7 @@ namespace CLproject.Controllers
             }// save here
 
             return View(model);
+
         }
   
             //load from the database 
@@ -41,7 +57,7 @@ namespace CLproject.Controllers
             //model.Groceries.Add(new GroceryItem() { ProductName="milk"});
             //model.Groceries.Add(new GroceryItem() { ProductName="cheese"});
             //model.Groceries.Add(new GroceryItem() { ProductName="oranges"});
-    
+    // above information was hard coded data
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -74,6 +90,13 @@ namespace CLproject.Controllers
         //{
         //    return View();
         //}
+
+
+        //// GET: Grocery/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+
 
         //// GET: Grocery/Create
         //public ActionResult Create()
