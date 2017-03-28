@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Data.Entity;
 
-
+// this is the correct working project with working database
 namespace CLproject
 {
     public class GroceryContext : DbContext
