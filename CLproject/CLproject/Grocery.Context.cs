@@ -16,6 +16,7 @@ namespace CLproject
         }
 
        // public object ProductName { get; internal set; }
+       //sets up a new database 
         public DbSet<Product> Products { get; set; }
 
     }
