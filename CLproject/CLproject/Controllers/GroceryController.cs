@@ -13,8 +13,19 @@ namespace CLproject.Controllers
         [HttpGet]
         public ActionResult Index()
         {
-            var model = new GroceryViewModel();
-            return View(model);
+             var model = new GroceryViewModel();
+
+            using (var context = new GroceryContext())
+            {
+                model.Groceries = context.Products.Select(p => new GroceryItem() {
+                    ProductName = p.ProductName,
+                    InCart = false, 
+                    ItemId = p.ProductId.ToString()
+                }).ToList();
+//context.SaveChanges();
+
+                return View(model);
+            }
         }
             //load from the database 
             //model.Groceries.Add(new GroceryItem() { ProductName="apple" });
@@ -47,17 +58,17 @@ namespace CLproject.Controllers
         }
 
 
-        // GET: Grocery/Details/5
-        public ActionResult Details(int id)
-        {
-            return View();
-        }
+        //// GET: Grocery/Details/5
+        //public ActionResult Details(int id)
+        //{
+        //    return View();
+        //}
 
-        // GET: Grocery/Create
-        public ActionResult Create()
-        {
-            return View();
-        }
+        //// GET: Grocery/Create
+        //public ActionResult Create()
+        //{
+        //    return View();
+        //}
 
         // POST: Grocery/Create
         [HttpPost]

@@ -8,26 +8,64 @@
 <h2>Grocery List</h2>
 <h3>by Amy Shah</h3>
 
+@*@using (Html.BeginForm())
+{
+    @Html.ValidationSummary()
+   @Html.AntiForgeryToken()
+       
+            @for (var i = 0; i < Model.groceries.count; i++)
+            {
+                <ul>
+                    <li>
+                        <div>
+                           
+                           Html.checkbox("groceries[" + i + "].itemid", groceries[i].incart)
+                           // groceries[i].productname, groceries[i].itemid
+                        </div>
+                    </li>
+                </ul>
+            }
+
+
+    @Html.LabelFor(g => g.Item.ProductName)
+    @Html.TextBoxFor(g => g.Item.ProductName, new { @class = "", @style = "" })  <br>
+    @Html.ValidationMessageFor(g => g.Item.ProductName)
+   } 
+    *@
+
 @using (Html.BeginForm())
 {
     @Html.ValidationSummary()
     @Html.AntiForgeryToken()
 
-    <ul>
+    //this part does not work 
+    <div>
         @for (var i = 0; i < Model.Groceries.Count; i++)
         {
-        <li><div>@Model.Groceries[i].ProductName</div></li>
-        }
-    </ul>
 
-    @Html.LabelFor(g => g.Item.ProductName)
-    @Html.TextBoxFor(g => g.Item.ProductName, new { @class = "", @style = "" })  <br>
-    @Html.ValidationMessageFor(g => g.Item.ProductName)
+        <ul>
+            <li>
+                <div>
+                   @*@Html.Label(Model.Groceries[i].ProductName)*@
+                   @Html.LabelFor(g => g.Item.ProductName[i], Model.Groceries[i].ProductName)
+                   @Html.CheckBoxFor(g=>g.Item.InCart)
+                   @*@Html.Checkbox("Groceries[" + i + "].itemid", Model.Groceries[i].InCart)
+                   Groceries[i].productname, Groceries[i].itemid*@
+                </div>
+            </li>
+        </ul>
+    }
+        </div>
+
+
+// this part works 
+            @Html.LabelFor(g => g.Item.ProductName)
+            @Html.TextBoxFor(g => g.Item.ProductName, new { @class = "", @style = "" })  <br>
+            @Html.ValidationMessageFor(g => g.Item.ProductName)
     <button type="submit" name="submit">Add</button>
     <button type="submit" name="delete">Remove</button>
     <button type="submit" name="clearAll">Clear List</button>
+
+
+
 }
-
-
-
-

@@ -12,6 +12,7 @@ namespace CLproject
         public GroceryContext()
         {
             // database.setinitializer(new databaseinitializer());
+            
         }
 
        // public object ProductName { get; internal set; }
